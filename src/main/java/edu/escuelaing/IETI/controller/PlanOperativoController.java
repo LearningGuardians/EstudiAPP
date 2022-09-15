@@ -1,18 +1,13 @@
 package edu.escuelaing.IETI.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import edu.escuelaing.IETI.LearningGuardians.dto.PlanOperativoDto;
 import edu.escuelaing.IETI.LearningGuardians.entities.PlanOperativo;
@@ -32,26 +27,61 @@ public class PlanOperativoController {
 
     @GetMapping
     public ResponseEntity<List<PlanOperativoDto>> getAll(){
-        return null;
+        try{
+            List<PlanOperativo> users = service.getAll();
+            List<PlanOperativoDto> usersConvert = new ArrayList<PlanOperativoDto>();
+            for(PlanOperativo operatives : users){
+                usersConvert.add(modelMapper.map(operatives, PlanOperativoDto.class));
+            }
+            return new ResponseEntity<>(usersConvert, HttpStatus.ACCEPTED);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+            return new ResponseEntity<>(new ArrayList<>(), HttpStatus.FORBIDDEN);
+        }
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PlanOperativoDto> findById(@RequestParam String id){
-        return null;
+    public ResponseEntity<PlanOperativoDto> findById(@PathVariable String id){
+        try{
+            return new ResponseEntity<>(modelMapper.map(service.findById(id), PlanOperativoDto.class),HttpStatus.ACCEPTED);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+            return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
+        }
     }
 
     @PostMapping
     public ResponseEntity<PlanOperativoDto> create(@RequestBody PlanOperativoDto pOperativoDto){
-        return null;
+        try{
+            PlanOperativo newUser = new PlanOperativo(pOperativoDto);
+            service.create(newUser);
+            return new ResponseEntity<>(pOperativoDto, HttpStatus.ACCEPTED);
+        }
+        catch(Exception ex){
+            return new ResponseEntity<>(null,HttpStatus.FORBIDDEN);
+        }
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<PlanOperativoDto> update(@RequestBody PlanOperativoDto pOperativoDto,@RequestParam String id){
-        return null;
+    public ResponseEntity<PlanOperativoDto> update(@RequestBody PlanOperativo p_operativo,@RequestParam String id){
+        try{
+            return new ResponseEntity<>(modelMapper.map(service.update(p_operativo,id), PlanOperativoDto.class), HttpStatus.ACCEPTED);
+        }
+        catch(Exception ex){
+            return new ResponseEntity<>(null, HttpStatus.FORBIDDEN);
+        }
     }
 
     @DeleteMapping("{id}")
     public ResponseEntity<Boolean> delete(@RequestParam String id){
-        return null;
+        try{
+            service.deleteById(id);
+            return new ResponseEntity<>(true,HttpStatus.ACCEPTED);
+        }
+        catch(Exception ex){
+            return new ResponseEntity<>(false, HttpStatus.FORBIDDEN);
+        }
     }
 }
