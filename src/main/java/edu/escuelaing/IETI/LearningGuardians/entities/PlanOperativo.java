@@ -1,5 +1,6 @@
 package edu.escuelaing.IETI.LearningGuardians.entities;
 
+import edu.escuelaing.IETI.LearningGuardians.dto.PlanOperativoDto;
 import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
@@ -25,15 +26,14 @@ public class PlanOperativo {
 
     /**
      * Constructor generado para la creacion de planes operativos, donde el usuario da todos los parametros
-     * @param id
-     * @param estudiante
-     * @param materia
-     * @param tematica
-     * @param Date
-     * @param porcentaje
      */
-    public PlanOperativo(String id, String estudiante, String materia, String tematica, String Date, String porcentaje){
-
+    public PlanOperativo(PlanOperativoDto operativeDTO){
+        this.id = operativeDTO.getId();
+        this.nombreEstudiante = operativeDTO.getNombreEstudiante();
+        this.Materia = operativeDTO.getMateria();
+        this.Tematica = operativeDTO.getTematica();
+        this.fechaDeCreacion = operativeDTO.getFecha();
+        this.porcentaje = operativeDTO.getPorcentaje();
     }
 
     public String getMateria() {
