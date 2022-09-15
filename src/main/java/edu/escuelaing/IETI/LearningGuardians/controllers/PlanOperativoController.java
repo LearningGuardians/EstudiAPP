@@ -1,4 +1,4 @@
-package edu.escuelaing.IETI.LearningGuardians.controller;
+package edu.escuelaing.IETI.LearningGuardians.controllers;
 
 import java.util.ArrayList;
 import java.util.List;

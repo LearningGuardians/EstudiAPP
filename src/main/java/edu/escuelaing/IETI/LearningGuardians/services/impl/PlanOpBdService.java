@@ -2,10 +2,10 @@ package edu.escuelaing.IETI.LearningGuardians.services.impl;
 
 import java.util.List;
 
+import edu.escuelaing.IETI.repository.PlanOperativo_Repository;
 import org.springframework.stereotype.Service;
 
 import edu.escuelaing.IETI.LearningGuardians.entities.PlanOperativo;
-import edu.escuelaing.IETI.LearningGuardians.repository.PlanOperativo_Repository;
 import edu.escuelaing.IETI.LearningGuardians.services.PlanOpService;
 
 @Service
