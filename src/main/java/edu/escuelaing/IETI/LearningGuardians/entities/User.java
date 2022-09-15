@@ -1,5 +1,6 @@
 package edu.escuelaing.IETI.LearningGuardians.entities;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -12,8 +13,6 @@ public class User{
     @Indexed( unique = true )
     String email;
 
-    public User() {
-    }
 
     public User(String id, String name, String email, String createdAt){
         this.id =id;

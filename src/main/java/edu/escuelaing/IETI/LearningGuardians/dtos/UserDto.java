@@ -9,6 +9,13 @@ public class UserDto implements Serializable{
     }
 
     private static final long serialVersionUID = 1L;
+
+    public UserDto(String name, String email, String createdAt) {
+        this.id = "";
+        this.name = name;
+        this.email = email;
+        this.createdAt = createdAt;
+    }
     public UserDto(String id, String name, String email, String createdAt){
         this.id =id;
         this.name = name;
