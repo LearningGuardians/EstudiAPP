@@ -10,8 +10,13 @@ public class PlanOperativoDto {
     private String fecha;
     private String porcentaje;
 
-    public PlanOperativoDto(){
-        
+    public PlanOperativoDto(String id, String estudiante, String materia, String tematica, String Date, String porcentaje){
+        this.id = id;
+        this.NombreEstudiante = estudiante;
+        this.Materia=materia;
+        this.Tematica = tematica;
+        this.fecha = Date;
+        this.porcentaje = porcentaje;
     }
 
     public String getMateria() {
@@ -46,5 +51,12 @@ public class PlanOperativoDto {
     public void setId(String id) {
         this.id = id;
     }
-    
+
+    public String getNombreEstudiante() {
+        return NombreEstudiante;
+    }
+
+    public void setNombreEstudiante(String nombreEstudiante) {
+        NombreEstudiante = nombreEstudiante;
+    }
 }
