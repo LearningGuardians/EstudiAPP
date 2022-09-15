@@ -4,7 +4,7 @@ public class PlanOperativoDto {
     
     private String id;
 
-    private String NombreEstudiante
+    private String NombreEstudiante;
     private String Materia;
     private String Tematica;
     private String fecha;
