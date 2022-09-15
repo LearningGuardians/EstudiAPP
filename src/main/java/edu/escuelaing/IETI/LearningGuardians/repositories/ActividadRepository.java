@@ -13,7 +13,7 @@ package edu.escuelaing.IETI.LearningGuardians.repository;
  * @version 1.3 Final
  **/
 
-import edu.escuelaing.IETI.LearningGuardians.entities.Actividad;
+import edu.escuelaing.IETI.LearningGuardians.entities.actividades;
 import org.springframework.data.repository.CrudRepository;
 
 public interface ActividadRepository extends CrudRepository<Actividad, Integer> {
