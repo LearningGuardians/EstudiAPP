@@ -1,4 +1,4 @@
-package edu.escuelaing.IETI.materias;
+package edu.escuelaing.IETI.LearningGuardians.materias;
 
 import org.springframework.data.annotation.Id;
 
