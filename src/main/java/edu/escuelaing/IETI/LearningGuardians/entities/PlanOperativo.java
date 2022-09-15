@@ -1,14 +1,38 @@
 package edu.escuelaing.IETI.LearningGuardians.entities;
 
+import org.springframework.data.annotation.Id;
+
+import java.time.LocalDate;
+
 public class PlanOperativo {
-    
+
+    @Id
     private String id;
+    private String nombreEstudiante;
     private String Materia;
     private String Tematica;
-    private String fecha;
+    private String fechaDeCreacion;
     private String porcentaje;
 
+    /**
+     * Constructor vacio, en caso que se quiera crear con los datos basicos
+     * entonces se le deja un identificador y la fecha de creacion
+     */
     public PlanOperativo(){
+        this.id = String.valueOf(Math.floor(Math.random()*10+1));
+        this.fechaDeCreacion = LocalDate.now().toString();
+    }
+
+    /**
+     * Constructor generado para la creacion de planes operativos, donde el usuario da todos los parametros
+     * @param id
+     * @param estudiante
+     * @param materia
+     * @param tematica
+     * @param Date
+     * @param porcentaje
+     */
+    public PlanOperativo(String id, String estudiante, String materia, String tematica, String Date, String porcentaje){
 
     }
 
@@ -25,10 +49,10 @@ public class PlanOperativo {
         Tematica = tematica;
     }
     public String getFecha() {
-        return fecha;
+        return fechaDeCreacion;
     }
     public void setFecha(String fecha) {
-        this.fecha = fecha;
+        this.fechaDeCreacion = fecha;
     }
     public String getPorcentaje() {
         return porcentaje;
@@ -44,5 +68,11 @@ public class PlanOperativo {
         this.id = id;
     }
 
+    public String getNombreEstudiante() {
+        return nombreEstudiante;
+    }
 
+    public void setNombreEstudiante(String nombreEstudiante) {
+        this.nombreEstudiante = nombreEstudiante;
+    }
 }

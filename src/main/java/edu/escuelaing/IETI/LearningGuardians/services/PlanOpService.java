@@ -10,18 +10,18 @@ public interface PlanOpService {
      * Crea un plan operativo con la informacion dada
      * @return El plan operativo Creado
      */
-    PlanOpService create(PlanOperativo pOp);
+    PlanOperativo create(PlanOperativo pOp);
 
     /**
      * Busca el plan operativo segun el id
      * @return El plan operativo encontrado por el Id
      */
-    PlanOpService findByid(String id);
+    PlanOperativo findById(String id);
 
     /**
      * @return Lista de todos los planes operativos registrados
      */
-    List<PlanOpService> getAll();
+    List<PlanOperativo> getAll();
 
     /**
      * Actualiza el plan operativo seleccionado, dado su id
@@ -29,11 +29,11 @@ public interface PlanOpService {
      * @param id Id del pla operativo a actualizar
      * @return Plan operativo actualizado
      */
-    PlanOpService update(PlanOperativo pOp, String id);
+    PlanOperativo update(PlanOperativo pOp, String id);
 
     /**
      * Elimina el plan operativo dado su id
      * @return Id del plan operativo a eliminar
      */
-    PlanOpService deleteById();
+    void deleteById(String id);
 }
