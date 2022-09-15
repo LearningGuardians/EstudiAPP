@@ -13,6 +13,7 @@ public class PlanOperativo {
     private String Materia;
     private String Tematica;
     private String fechaDeCreacion;
+    private String razon;
     private String porcentaje;
 
     /**
@@ -33,6 +34,7 @@ public class PlanOperativo {
         this.Materia=operativoDto.getMateria();
         this.Tematica = operativoDto.getTematica();
         this.fechaDeCreacion = operativoDto.getFecha();
+        this.razon = operativoDto.getRazon();
         this.porcentaje = operativoDto.getPorcentaje();
     }
 
@@ -74,5 +76,13 @@ public class PlanOperativo {
 
     public void setNombreEstudiante(String nombreEstudiante) {
         this.nombreEstudiante = nombreEstudiante;
+    }
+
+    public String getRazon() {
+        return razon;
+    }
+
+    public void setRazon(String razon) {
+        this.razon = razon;
     }
 }
