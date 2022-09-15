@@ -1,4 +1,4 @@
-package edu.escuelaing.IETI.repository;
+package edu.escuelaing.IETI.LearningGuardians.repository;
 
 import edu.escuelaing.IETI.LearningGuardians.entities.PlanOperativo;
 import org.springframework.data.mongodb.repository.MongoRepository;
