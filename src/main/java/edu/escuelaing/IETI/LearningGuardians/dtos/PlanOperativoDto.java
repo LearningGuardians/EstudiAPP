@@ -1,4 +1,4 @@
-package edu.escuelaing.IETI.LearningGuardians.dto;
+package edu.escuelaing.IETI.LearningGuardians.dtos;
 
 public class PlanOperativoDto {
     

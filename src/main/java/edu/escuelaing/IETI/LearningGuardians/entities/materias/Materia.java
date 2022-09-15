@@ -1,4 +1,4 @@
-package edu.escuelaing.IETI.materias;
+package edu.escuelaing.IETI.LearningGuardians.entities;
 
 import org.springframework.data.annotation.Id;
 
@@ -17,6 +17,4 @@ public class Materia {
         this.nombre = nombre;
         this.tematicas = tematicas;
     }
-
-    
 }
