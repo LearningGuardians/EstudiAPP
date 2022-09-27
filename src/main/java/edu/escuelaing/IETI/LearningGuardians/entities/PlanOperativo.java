@@ -16,6 +16,10 @@ public class PlanOperativo {
     private String razon;
     private String porcentaje;
 
+    private String SalidaColegio;
+    private String fechaActividad;
+
+    private String extraCurriculares;
     /**
      * Constructor vacio, en caso que se quiera crear con los datos basicos
      * entonces se le deja un identificador y la fecha de creacion
@@ -84,5 +88,37 @@ public class PlanOperativo {
 
     public void setRazon(String razon) {
         this.razon = razon;
+    }
+
+    public String getFechaDeCreacion() {
+        return fechaDeCreacion;
+    }
+
+    public void setFechaDeCreacion(String fechaDeCreacion) {
+        this.fechaDeCreacion = fechaDeCreacion;
+    }
+
+    public String getSalidaColegio() {
+        return SalidaColegio;
+    }
+
+    public void setSalidaColegio(String salidaColegio) {
+        SalidaColegio = salidaColegio;
+    }
+
+    public String getFechaActividad() {
+        return fechaActividad;
+    }
+
+    public void setFechaActividad(String fechaActividad) {
+        this.fechaActividad = fechaActividad;
+    }
+
+    public String getExtraCurriculares() {
+        return extraCurriculares;
+    }
+
+    public void setExtraCurriculares(String extraCurriculares) {
+        this.extraCurriculares = extraCurriculares;
     }
 }

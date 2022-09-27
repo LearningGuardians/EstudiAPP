@@ -52,6 +52,11 @@ public class PlanOperativoController {
         }
     }
 
+    /**
+     * Funcion generada para crear e insertar un plan operativo
+     * @param pOperativoDto
+     * @return
+     */
     @PostMapping
     public ResponseEntity<PlanOperativoDto> create(@RequestBody PlanOperativoDto pOperativoDto){
         try{
