@@ -13,8 +13,9 @@ package edu.escuelaing.IETI.LearningGuardians.entities;
  * @version 1.3 Final
  **/
 
-import edu.escuelaing.IETI.LearningGuardians.dto.ActividadDto;
 
+
+import edu.escuelaing.IETI.LearningGuardians.dtos.ActividadDto;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -1,8 +1,8 @@
-package edu.escuelaing.IETI.LearningGuardians.services.impl;
+package edu.escuelaing.IETI.LearningGuardians.services.implementations;
 
 import java.util.List;
 
-import edu.escuelaing.IETI.repository.PlanOperativo_Repository;
+import edu.escuelaing.IETI.LearningGuardians.repositories.PlanOperativo_Repository;
 import org.springframework.stereotype.Service;
 
 import edu.escuelaing.IETI.LearningGuardians.entities.PlanOperativo;

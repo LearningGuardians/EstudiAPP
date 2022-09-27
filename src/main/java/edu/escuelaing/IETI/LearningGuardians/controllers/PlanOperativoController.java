@@ -3,13 +3,13 @@ package edu.escuelaing.IETI.LearningGuardians.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.escuelaing.IETI.LearningGuardians.dtos.PlanOperativoDto;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import edu.escuelaing.IETI.LearningGuardians.dto.PlanOperativoDto;
 import edu.escuelaing.IETI.LearningGuardians.entities.PlanOperativo;
 import edu.escuelaing.IETI.LearningGuardians.services.PlanOpService;
 
