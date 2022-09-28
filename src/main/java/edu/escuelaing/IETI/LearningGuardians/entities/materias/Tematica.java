@@ -8,15 +8,12 @@ public class Tematica {
 
     public String nombre;
 
-    public Materia materia;
-
     public int nivel;
 
     public Tematica(){};
 
-    public Tematica( String nombre, Materia materia, int nivel){
+    public Tematica( String nombre, int nivel){
         this.nombre = nombre;
-        this.materia = materia;
         this.nivel = nivel;
     }
 }

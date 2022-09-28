@@ -10,11 +10,11 @@ public class Materia {
 
     public String nombre;
 
-    public List<Tematica> tematicas;
+    public List<String> idTematicas;
 
     public Materia(){}
-    public Materia(String nombre, List<Tematica> tematicas){
+    public Materia(String nombre, List<String> tematicas){
         this.nombre = nombre;
-        this.tematicas = tematicas;
+        this.idTematicas = tematicas;
     }
 }
