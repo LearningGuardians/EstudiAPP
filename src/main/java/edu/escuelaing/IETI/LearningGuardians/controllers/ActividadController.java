@@ -13,7 +13,7 @@ package edu.escuelaing.IETI.LearningGuardians.controllers;
  * @version 1.3 Final
  **/
 
-import edu.escuelaing.IETI.LearningGuardians.dto.ActividadDto;
+import edu.escuelaing.IETI.LearningGuardians.dtos.ActividadDto;
 import edu.escuelaing.IETI.LearningGuardians.entities.Actividad;
 import edu.escuelaing.IETI.LearningGuardians.services.*;
 import org.springframework.beans.factory.annotation.Autowired;

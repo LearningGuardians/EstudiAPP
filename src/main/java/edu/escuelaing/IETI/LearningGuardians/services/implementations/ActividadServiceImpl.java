@@ -1,4 +1,4 @@
-package edu.escuelaing.IETI.LearningGuardians.services;
+package edu.escuelaing.IETI.LearningGuardians.services.implementations;
 /**
  *		------------------------------------------------------------------------
  *		------------------------ ActividadServiceMySql --------------------------------
@@ -16,7 +16,9 @@ package edu.escuelaing.IETI.LearningGuardians.services;
  **/
 
 import edu.escuelaing.IETI.LearningGuardians.entities.Actividad;
-import edu.escuelaing.IETI.LearningGuardians.repository.ActividadRepository;
+
+import edu.escuelaing.IETI.LearningGuardians.repositories.ActividadRepository;
+import edu.escuelaing.IETI.LearningGuardians.services.ActividadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

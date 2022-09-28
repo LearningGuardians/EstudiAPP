@@ -1,8 +1,9 @@
-package edu.escuelaing.IETI.LearningGuardians.services.impl;
+package edu.escuelaing.IETI.LearningGuardians.services.implementations;
 
 import java.util.List;
 
-import edu.escuelaing.IETI.repository.PlanOperativo_Repository;
+import edu.escuelaing.IETI.LearningGuardians.IA.LearningIA;
+import edu.escuelaing.IETI.LearningGuardians.repositories.PlanOperativo_Repository;
 import org.springframework.stereotype.Service;
 
 import edu.escuelaing.IETI.LearningGuardians.entities.PlanOperativo;
@@ -13,13 +14,18 @@ public class PlanOpBdService implements PlanOpService {
 
     private final PlanOperativo_Repository po_Mongo;
 
+    private LearningIA IA;
+
     /**
      * Constructor Servicio Plan operativo. Se asigna valor po_mongo para
      * hacer consultas en Cluster Mongo
+     *
      * @param po_mongo
+     * @param ia
      */
-    public PlanOpBdService(PlanOperativo_Repository po_mongo) {
+    public PlanOpBdService(PlanOperativo_Repository po_mongo, LearningIA ia) {
         this.po_Mongo = po_mongo;
+        IA = ia;
     }
 
     /**
@@ -30,6 +36,7 @@ public class PlanOpBdService implements PlanOpService {
     @Override
     public PlanOperativo create(PlanOperativo pOp) {
         po_Mongo.save(pOp);
+        IA = new LearningIA(pOp);
         return pOp;
     }
 
@@ -73,6 +80,4 @@ public class PlanOpBdService implements PlanOpService {
     public void deleteById(String id) {
         po_Mongo.deleteById(id);
     }
-
-
 }
