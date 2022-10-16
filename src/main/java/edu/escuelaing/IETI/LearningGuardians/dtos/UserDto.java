@@ -3,9 +3,16 @@ package edu.escuelaing.IETI.LearningGuardians.dtos;
 import java.io.Serializable;
 
 public class UserDto implements Serializable{
-    String id,name,email,createdAt;
+    String id,name,email,createdAt, password;
 
     public UserDto() {
+    }
+
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     private static final long serialVersionUID = 1L;

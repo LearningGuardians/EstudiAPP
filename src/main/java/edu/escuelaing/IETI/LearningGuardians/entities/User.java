@@ -1,14 +1,23 @@
 package edu.escuelaing.IETI.LearningGuardians.entities;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+
+import edu.escuelaing.IETI.LearningGuardians.dtos.UserDto;
+import edu.escuelaing.IETI.LearningGuardians.entities.enumerations.RoleEnum;
 @Document
 public class User{
     @Id
     String id;
+    
+
     String name, createdAt;
+    private String passwordHash;
+    private List<RoleEnum> roles;
 
     @Indexed( unique = true )
     String email;
@@ -20,6 +29,16 @@ public class User{
         this.email = email;
         this.createdAt = createdAt;
     }
+
+    public User(UserDto userDTO) {
+        this.name = userDTO.getName();
+        this.email = userDTO.getEmail();
+        this.createdAt = userDTO.getCreatedAt();
+        //System.out.println("Estamos en costructor de User ");
+        //System.out.println("Contraseña " + userDTO.getPassword());
+        passwordHash = BCrypt.hashpw(userDTO.getPassword(), BCrypt.gensalt());
+    }
+
     public String getId() {
         return this.id;
     }
@@ -50,5 +69,17 @@ public class User{
 
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
+    }
+    public String getPasswordHash() {
+        return passwordHash;
+    }
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
+    }
+    public List<RoleEnum> getRoles() {
+        return roles;
+    }
+    public void setRoles(List<RoleEnum> roles) {
+        this.roles = roles;
     }
 }
