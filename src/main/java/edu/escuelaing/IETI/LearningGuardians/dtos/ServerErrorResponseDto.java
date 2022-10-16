@@ -1,5 +1,7 @@
 package edu.escuelaing.IETI.LearningGuardians.dtos;
 
+import org.springframework.http.HttpStatus;
+
 import edu.escuelaing.IETI.LearningGuardians.entities.enumerations.ErrorCodeEnum;
 
 public  class  ServerErrorResponseDto {

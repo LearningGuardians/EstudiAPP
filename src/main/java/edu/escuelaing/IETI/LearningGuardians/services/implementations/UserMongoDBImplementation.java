@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
-import edu.escuelaing.IETI.LearningGuardians.LearningGuardiansApplication;
 import edu.escuelaing.IETI.LearningGuardians.dtos.UserDto;
 import edu.escuelaing.IETI.LearningGuardians.entities.User;
 import edu.escuelaing.IETI.LearningGuardians.repositories.UserRepository;
@@ -80,6 +79,12 @@ public class UserMongoDBImplementation implements UserService{
         User user = new User(userDto.getId(), userDto.getName(), userDto.getEmail(),
                 userDto.getCreatedAt());
         return user;
+    }
+
+    @Override
+    public User findByEmail(String email) {
+        // TODO Auto-generated method stub
+        return null;
     }
     
 }

@@ -21,7 +21,9 @@ public interface UserService {
 
     List<UserDto> fromEntityToDtos(List<User> user);
 
-    User fromDtoToEntity(UserDto userDto); 
+    User fromDtoToEntity(UserDto userDto);
+
+    User findByEmail(String email); 
     
     
 }

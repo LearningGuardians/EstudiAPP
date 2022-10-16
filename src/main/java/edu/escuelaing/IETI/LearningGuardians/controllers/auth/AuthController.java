@@ -18,7 +18,8 @@ import edu.escuelaing.IETI.LearningGuardians.services.UserService;
 
 import java.util.Calendar;
 import java.util.Date;
-
+import static edu.escuelaing.IETI.LearningGuardians.entities.constants.Constants.CLAIMS_ROLES_KEY;
+import static edu.escuelaing.IETI.LearningGuardians.entities.constants.Constants.TOKEN_DURATION_MINUTES;;
 
 
 @RestController
