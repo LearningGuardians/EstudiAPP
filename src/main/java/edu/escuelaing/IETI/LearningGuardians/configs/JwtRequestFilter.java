@@ -25,8 +25,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-import static edu.escuelaing.IETI.LearningGuardians.entities.constants.Constants.CLAIMS_ROLES_KEY;
-import static edu.escuelaing.IETI.LearningGuardians.entities.constants.Constants.TOKEN_DURATION_MINUTES;;
+import static edu.escuelaing.IETI.LearningGuardians.entities.constants.Constants.CLAIMS_ROLES_KEY;;
 
 @Component
 public class JwtRequestFilter
