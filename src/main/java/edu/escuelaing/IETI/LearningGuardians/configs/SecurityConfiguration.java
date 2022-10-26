@@ -10,35 +10,28 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 @EnableWebSecurity
-@EnableGlobalMethodSecurity( securedEnabled = true, jsr250Enabled = true, prePostEnabled = true )
-public class SecurityConfiguration
-     extends WebSecurityConfigurerAdapter
-{
+@EnableGlobalMethodSecurity(securedEnabled = true, jsr250Enabled = true, prePostEnabled = true)
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+    private JwtRequestFilter jwtRequestFilter;
 
-JwtRequestFilter jwtRequestFilter;
+    public SecurityConfiguration(@Autowired JwtRequestFilter jwtRequestFilter) {
+        this.jwtRequestFilter = jwtRequestFilter;
+    }
 
-public SecurityConfiguration( @Autowired JwtRequestFilter jwtRequestFilter )
-{
-   this.jwtRequestFilter = jwtRequestFilter;
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.addFilterBefore(jwtRequestFilter, BasicAuthenticationFilter.class)
+                .cors()
+                .and()
+                .csrf()
+                .disable()
+                .authorizeRequests()
+                .antMatchers(HttpMethod.POST, "/api/v1/auth").permitAll()
+                .antMatchers(HttpMethod.POST, "/user").permitAll()
+                .anyRequest()
+                .authenticated()
+                .and()
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+    }
 }
-
-@Override
-protected void configure( HttpSecurity http )
-        throws Exception
-{
-   http.addFilterBefore( jwtRequestFilter,
-                         BasicAuthenticationFilter.class )
-                         .cors()
-                         .and()
-                         .csrf()
-                         .disable()
-                         .authorizeRequests()
-                         .antMatchers( HttpMethod.POST, "/v1/auth" )
-                         .permitAll()
-                         .anyRequest()
-                         .authenticated()
-                         .and()
-                         .sessionManagement()
-                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS );
-}
-}  

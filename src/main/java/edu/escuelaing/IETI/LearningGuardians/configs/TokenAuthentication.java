@@ -8,12 +8,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class TokenAuthentication
-        extends AbstractAuthenticationToken {
+public class TokenAuthentication extends AbstractAuthenticationToken {
     String token;
-
     String subject;
-
     List<String> roles;
 
     public TokenAuthentication(String token, String subject, List<String> roles) {
@@ -43,5 +40,4 @@ public class TokenAuthentication
         return roles.stream().map(role -> new SimpleGrantedAuthority("ROLE_" + role)).collect(
                 Collectors.toList());
     }
-
 }

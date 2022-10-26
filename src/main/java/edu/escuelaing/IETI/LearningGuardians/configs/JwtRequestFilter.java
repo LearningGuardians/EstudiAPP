@@ -1,13 +1,7 @@
 package edu.escuelaing.IETI.LearningGuardians.configs;
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.ExpiredJwtException;
-import io.jsonwebtoken.Jws;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.MalformedJwtException;
+import io.jsonwebtoken.*;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
@@ -18,28 +12,25 @@ import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import org.springframework.http.HttpMethod;
+import javax.ws.rs.core.HttpHeaders;
 
-import static edu.escuelaing.IETI.LearningGuardians.entities.constants.Constants.CLAIMS_ROLES_KEY;;
+import java.io.IOException;
+import java.util.*;
+
+import static edu.escuelaing.IETI.LearningGuardians.entities.constants.Constants.CLAIMS_ROLES_KEY;
+import static edu.escuelaing.IETI.LearningGuardians.entities.constants.Constants.COOKIE_NAME;
 
 @Component
-public class JwtRequestFilter
-        extends OncePerRequestFilter {
-    private static final Object COOKIE_NAME = null;
-    @Value("${app.secret}")
+public class JwtRequestFilter extends OncePerRequestFilter {
+    @Value( "${app.secret}" )
     String secret;
 
     public JwtRequestFilter() {
     }
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
-            throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
 
         if (HttpMethod.OPTIONS.name().equals(request.getMethod())) {
@@ -47,10 +38,7 @@ public class JwtRequestFilter
             filterChain.doFilter(request, response);
         } else {
             try {
-                Optional<Cookie> optionalCookie = request.getCookies() != null
-                        ? Arrays.stream(request.getCookies()).filter(
-                                cookie -> Objects.equals(cookie.getName(), COOKIE_NAME)).findFirst()
-                        : Optional.empty();
+                Optional<Cookie> optionalCookie = request.getCookies() != null ? Arrays.stream(request.getCookies()).filter(cookie -> Objects.equals(cookie.getName(), COOKIE_NAME)).findFirst() : Optional.empty();
 
                 String headerJwt = null;
                 if (authHeader != null && authHeader.startsWith("Bearer ")) {
@@ -67,8 +55,7 @@ public class JwtRequestFilter
                     if (roles == null) {
                         response.sendError(HttpStatus.UNAUTHORIZED.value(), "Invalid token roles");
                     } else {
-                        SecurityContextHolder.getContext()
-                                .setAuthentication(new TokenAuthentication(token, subject, roles));
+                        SecurityContextHolder.getContext().setAuthentication(new TokenAuthentication(token, subject, roles));
                     }
 
                     request.setAttribute("claims", claimsBody);

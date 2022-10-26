@@ -1,29 +1,29 @@
 package edu.escuelaing.IETI.LearningGuardians.services;
 
+
+import java.util.Date;
 import java.util.List;
 
-import edu.escuelaing.IETI.LearningGuardians.dtos.UserDto;
-import edu.escuelaing.IETI.LearningGuardians.entities.User;
+import edu.escuelaing.IETI.LearningGuardians.dtos.users.UserDto;
+import edu.escuelaing.IETI.LearningGuardians.entities.users.User;
 
-
+/**
+ * @author Laura Garcia
+ */
 public interface UserService {
-    User create(User user);
+    User create( User user );
 
-    User findById(String id);
+    User findById( String id );
 
     List<User> getAll();
 
     boolean deleteById(String id);
 
-    User update(User user, String userId);
+    User update(UserDto user, String userId);
 
-    UserDto fromEntityToDto(User user);
+    List<User> findUsersWithNameOrLastNameLike(String queryText);
 
-    List<UserDto> fromEntityToDtos(List<User> user);
+    List<User> findUsersCreatedAfter(Date startDate);
 
-    User fromDtoToEntity(UserDto userDto);
-
-    User findByEmail(String email); 
-    
-    
+    User findByEmail(String email);
 }

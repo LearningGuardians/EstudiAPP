@@ -1,27 +1,22 @@
-package edu.escuelaing.IETI.LearningGuardians.dtos;
-
+package edu.escuelaing.IETI.LearningGuardians.dtos.users;
 import java.util.Date;
 
-public class TokenDto
-{
+public class TokenDto {
 
     private String token;
 
     private Date expirationDate;
 
-    public TokenDto( String token, Date expirationDate )
-    {
+    public TokenDto(String token, Date expirationDate) {
         this.token = token;
         this.expirationDate = expirationDate;
     }
 
-    public String getToken()
-    {
+    public String getToken() {
         return token;
     }
 
-    public Date getExpirationDate()
-    {
+    public Date getExpirationDate() {
         return expirationDate;
     }
 }
