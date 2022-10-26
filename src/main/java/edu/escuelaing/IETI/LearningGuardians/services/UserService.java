@@ -7,9 +7,7 @@ import java.util.List;
 import edu.escuelaing.IETI.LearningGuardians.dtos.users.UserDto;
 import edu.escuelaing.IETI.LearningGuardians.entities.users.User;
 
-/**
- * @author Laura Garcia
- */
+
 public interface UserService {
     User create( User user );
 

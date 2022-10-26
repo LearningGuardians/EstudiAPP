@@ -8,9 +8,7 @@ import edu.escuelaing.IETI.LearningGuardians.entities.enumerations.ErrorCodeEnum
 
 import javax.ws.rs.InternalServerErrorException;
 
-/**
- * @author Laura Garcia
- */
+
 public class InvalidCredentialsException extends InternalServerErrorException {
     private ServerErrorResponseDto serverErrorResponseDto;
 

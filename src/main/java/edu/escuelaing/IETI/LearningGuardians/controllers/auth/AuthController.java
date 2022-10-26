@@ -20,9 +20,7 @@ import java.util.Date;
 import static edu.escuelaing.IETI.LearningGuardians.entities.constants.Constants.TOKEN_DURATION_MINUTES;
 import static edu.escuelaing.IETI.LearningGuardians.entities.constants.Constants.CLAIMS_ROLES_KEY;
 
-/**
- * @author Laura Garcia
- */
+
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping( "/api/v1/auth" )

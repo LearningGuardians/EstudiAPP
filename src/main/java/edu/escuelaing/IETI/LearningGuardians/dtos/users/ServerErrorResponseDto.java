@@ -5,9 +5,7 @@ import org.springframework.http.HttpStatus;
 
 import edu.escuelaing.IETI.LearningGuardians.entities.enumerations.ErrorCodeEnum;
 
-/**
- * @author Laura Garcia
- */
+
 public class ServerErrorResponseDto {
     String  message;
     ErrorCodeEnum errorCode;

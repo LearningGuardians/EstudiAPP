@@ -11,8 +11,3 @@ public class LearningApplication {
         SpringApplication.run(LearningApplication.class, args);
     }
 }
-/**
- * Crear usuario con contraseña
- * Probar el endpoint de /v1/auth con email y constraseña normal (se hashea en ejecucion)
- * https://github.dev/laura-gar/IETI-TaskPlanner-Users/tree/securityJWT
- */
