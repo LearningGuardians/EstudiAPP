@@ -17,9 +17,12 @@ import edu.escuelaing.IETI.LearningGuardians.services.UserService;
 
 @Service
 public class UserMongoDBImplementation implements UserService{
-    @Autowired
+
     private UserRepository userRepository;
 
+    public UserMongoDBImplementation(@Autowired UserRepository userRepository){
+        this.userRepository = userRepository;
+    }
     
     @Override
     public User create(User user) {

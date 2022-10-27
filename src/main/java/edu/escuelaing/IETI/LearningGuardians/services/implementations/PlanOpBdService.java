@@ -4,6 +4,8 @@ import java.util.List;
 
 import edu.escuelaing.IETI.LearningGuardians.IA.LearningIA;
 import edu.escuelaing.IETI.LearningGuardians.repositories.PlanOperativo_Repository;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.escuelaing.IETI.LearningGuardians.entities.PlanOperativo;
@@ -23,9 +25,8 @@ public class PlanOpBdService implements PlanOpService {
      * @param po_mongo
      * @param ia
      */
-    public PlanOpBdService(PlanOperativo_Repository po_mongo, LearningIA ia) {
+    public PlanOpBdService(@Autowired PlanOperativo_Repository po_mongo) {
         this.po_Mongo = po_mongo;
-        IA = ia;
     }
 
     /**
@@ -36,7 +37,6 @@ public class PlanOpBdService implements PlanOpService {
     @Override
     public PlanOperativo create(PlanOperativo pOp) {
         po_Mongo.save(pOp);
-        IA = new LearningIA(pOp);
         return pOp;
     }
 

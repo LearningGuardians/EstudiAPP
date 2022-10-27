@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.escuelaing.IETI.LearningGuardians.dtos.UserDto;
@@ -21,6 +22,7 @@ import edu.escuelaing.IETI.LearningGuardians.entities.User;
 import edu.escuelaing.IETI.LearningGuardians.services.UserService;
 
 @RestController
+@RequestMapping("/user")
 public class UserController {
     private final AtomicLong counter = new AtomicLong();
     private final UserService userService;

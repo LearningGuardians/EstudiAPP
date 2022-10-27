@@ -2,6 +2,7 @@ package edu.escuelaing.IETI.LearningGuardians.entities;
 
 import edu.escuelaing.IETI.LearningGuardians.dtos.PlanOperativoDto;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
 
