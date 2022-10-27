@@ -14,7 +14,7 @@ import edu.escuelaing.IETI.LearningGuardians.entities.PlanOperativo;
 import edu.escuelaing.IETI.LearningGuardians.services.PlanOpService;
 
 @RestController
-@RequestMapping("/pOperativo")
+@RequestMapping("/operativo")
 public class PlanOperativoController {
     
     private final PlanOpService service;

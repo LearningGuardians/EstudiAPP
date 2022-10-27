@@ -28,6 +28,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/api/v1/auth").permitAll()
                 .antMatchers(HttpMethod.POST, "/user").permitAll()
+                .antMatchers(HttpMethod.GET, "/operativo").permitAll()
+                .antMatchers( HttpMethod.GET, "/operativo/all/*" ).permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()

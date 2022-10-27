@@ -1,5 +1,6 @@
 package edu.escuelaing.IETI.LearningGuardians.services.implementations;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -91,7 +92,12 @@ public class PlanOpBdService implements PlanOpService {
     @Override
     public List<PlanOperativo> getAllFromUser(String name){
         List<PlanOperativo> all = getAll();
-        List<PlanOperativo> onlyUser = all.stream().filter(x -> x.getNombreEstudiante()== name).collect(Collectors.toList());
+        List<PlanOperativo> onlyUser = new ArrayList();
+        for(PlanOperativo po : all){
+            if(po.getNombreEstudiante().equals(name)){
+                onlyUser.add(po);
+            }
+        }
         return onlyUser;
     }
 }

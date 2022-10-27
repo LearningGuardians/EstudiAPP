@@ -12,6 +12,8 @@ public class PlanOperativoDto {
     private String razon;
     private String porcentaje;
 
+    public PlanOperativoDto(){}
+
     public PlanOperativoDto(String id, String estudiante, String materia, String tematica, String Date, String razon, String porcentaje){
         this.id = id;
         this.NombreEstudiante = estudiante;
