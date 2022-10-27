@@ -17,21 +17,22 @@ import edu.escuelaing.IETI.LearningGuardians.entities.Estado;
 import edu.escuelaing.IETI.LearningGuardians.entities.Materia;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 public class ActividadDto {
 
-    private Integer ID;
+    private String ID;
     private String nombre;
     private String descripcion;
     private Materia materia;
     private Integer calificacion;
-    private LocalDateTime fechaCalificacion;
+    private Date fechaCalificacion;
     private String comentarios;
-    private LocalDateTime fechaPublicacion;
-    private LocalDateTime fechaCierre;
+    private Date fechaPublicacion;
+    private Date fechaCierre;
     private Estado estado;
 
-    public ActividadDto(Integer ID, String nombre, String descripcion, Materia materia, Integer calificacion, LocalDateTime fechaCalificacion, String comentarios, LocalDateTime fechaPublicacion, LocalDateTime fechaCierre, Estado estado){
+    public ActividadDto(String ID, String nombre, String descripcion, Materia materia, Integer calificacion, Date fechaCalificacion, String comentarios, Date fechaPublicacion, Date fechaCierre, Estado estado){
         this.ID=ID;
         this.nombre=nombre;
         this.descripcion=descripcion;
@@ -44,7 +45,7 @@ public class ActividadDto {
         this.estado=estado;
     }
 
-    public Integer getID() {
+    public String getID() {
         return ID;
     }
 
@@ -64,7 +65,7 @@ public class ActividadDto {
         return calificacion;
     }
 
-    public LocalDateTime getFechaCalificacion() {
+    public Date getFechaCalificacion() {
         return fechaCalificacion;
     }
 
@@ -72,11 +73,11 @@ public class ActividadDto {
         return comentarios;
     }
 
-    public LocalDateTime getFechaPublicacion() {
+    public Date getFechaPublicacion() {
         return fechaPublicacion;
     }
 
-    public LocalDateTime getFechaCierre() {
+    public Date getFechaCierre() {
         return fechaCierre;
     }
 

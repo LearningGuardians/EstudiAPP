@@ -21,19 +21,20 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
-@Document
+@Document("actividad")
 public class Actividad {
     @Id
-    private Integer ID;
+    private String ID;
     private String nombre;
     private String descripcion;
     private Materia materia;
     private Integer calificacion;
-    private LocalDateTime fechaCalificacion;
+    private Date fechaCalificacion;
     private String comentarios;
-    private LocalDateTime fechaPublicacion;
-    private LocalDateTime fechaCierre;
+    private Date fechaPublicacion;
+    private Date fechaCierre;
     private Estado estado;
 
 

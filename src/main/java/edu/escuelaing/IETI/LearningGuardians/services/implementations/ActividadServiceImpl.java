@@ -27,7 +27,10 @@ import java.util.Optional;
 
 @Service
 public class ActividadServiceImpl implements ActividadService {
+
+
     private final ActividadRepository actividadRepository;
+
 
     public ActividadServiceImpl(@Autowired ActividadRepository actividadRepository )
     {

@@ -14,7 +14,8 @@ import edu.escuelaing.IETI.LearningGuardians.services.PlanOpService;
 @Service
 public class PlanOpBdService implements PlanOpService {
 
-    private final PlanOperativo_Repository po_Mongo;
+
+    private final PlanOperativo_Repository po_Mongo;    
 
     private LearningIA IA;
 

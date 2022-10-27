@@ -60,8 +60,10 @@ public class PlanOperativoController {
     @PostMapping
     public ResponseEntity<PlanOperativoDto> create(@RequestBody PlanOperativoDto pOperativoDto){
         try{
+            System.out.println("INSERTANDO PLAN OPERATIVO --------------------------------------------");
             PlanOperativo newUser = new PlanOperativo(pOperativoDto);
             service.create(newUser);
+            System.out.println("PLAN OPERATIVO INSERTADO-------------------------------------------");
             return new ResponseEntity<>(pOperativoDto, HttpStatus.ACCEPTED);
         }
         catch(Exception ex){

@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
 
+@Document("planOperativo")
 public class PlanOperativo {
 
     @Id

@@ -24,7 +24,7 @@ import java.util.Optional;
 import java.util.Date;
 
 @RestController
-@RequestMapping(path="/actividad")
+@RequestMapping("/actividad")
 //@CrossOrigin(origins = "http://localhost")
 public class ActividadController {
 
@@ -37,6 +37,7 @@ public class ActividadController {
 
     @PostMapping("/insertar")
     public ResponseEntity<Actividad> insertar(@RequestBody ActividadDto actividadDto) {
+        System.out.println("INSERTANDO ACTIVIDAD --------------------------------------");
         return ResponseEntity.ok(actividadService.insertar( new Actividad(actividadDto)));
     }
 

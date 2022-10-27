@@ -47,9 +47,11 @@ public class UserController {
 
     @PostMapping()
     public ResponseEntity<UserDto> create(@RequestBody UserDto userDto) {
+        System.out.println("INSERTANDO USUARIO----------------------------");
         User user = userService.fromDtoToEntity(userDto);
         user = userService.create(user);
         UserDto userDto1 = userService.fromEntityToDto(user);
+        System.out.println("USARIO INSERTADO-------------------------------");
         return new ResponseEntity<UserDto>(userDto1, HttpStatus.ACCEPTED);
     }
 
