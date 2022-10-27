@@ -51,6 +51,28 @@ public class PlanOperativoController {
             return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
         }
     }
+    /**
+     * Response generado para retornar todos los planes operativos de una persona
+     * @param name
+     * @return
+     */
+    @GetMapping("/all/{name}")
+    public ResponseEntity<List<PlanOperativoDto>> getAllFromUser(@PathVariable String name){
+        try{
+            List<PlanOperativo> users = service.getAllFromUser(name);
+            List<PlanOperativoDto> onlyUserPO = new ArrayList<PlanOperativoDto>();
+            for(PlanOperativo operatives : users){
+                onlyUserPO.add(modelMapper.map(operatives, PlanOperativoDto.class));
+            }
+            return new ResponseEntity<>(onlyUserPO,HttpStatus.ACCEPTED);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+            return new ResponseEntity<>(new ArrayList<>(),HttpStatus.NOT_FOUND);
+        }
+    }
+
+
 
     /**
      * Funcion generada para crear e insertar un plan operativo

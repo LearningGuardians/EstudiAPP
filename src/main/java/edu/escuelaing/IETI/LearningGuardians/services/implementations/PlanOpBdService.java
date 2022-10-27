@@ -1,6 +1,7 @@
 package edu.escuelaing.IETI.LearningGuardians.services.implementations;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import edu.escuelaing.IETI.LearningGuardians.IA.LearningIA;
 import edu.escuelaing.IETI.LearningGuardians.repositories.PlanOperativo_Repository;
@@ -80,5 +81,17 @@ public class PlanOpBdService implements PlanOpService {
     @Override
     public void deleteById(String id) {
         po_Mongo.deleteById(id);
+    }
+
+    /**
+     * Mediante un filtro hacia todos los elementos de la base de datos, se revisa los planes operativos
+     * que tengan como dueño al usuario definido.
+     * @param name
+     */
+    @Override
+    public List<PlanOperativo> getAllFromUser(String name){
+        List<PlanOperativo> all = getAll();
+        List<PlanOperativo> onlyUser = all.stream().filter(x -> x.getNombreEstudiante()== name).collect(Collectors.toList());
+        return onlyUser;
     }
 }
