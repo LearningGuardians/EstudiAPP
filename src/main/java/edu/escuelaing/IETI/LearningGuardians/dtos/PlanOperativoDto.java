@@ -1,4 +1,4 @@
-package edu.escuelaing.IETI.LearningGuardians.dto;
+package edu.escuelaing.IETI.LearningGuardians.dtos;
 
 public class PlanOperativoDto {
     
@@ -8,14 +8,17 @@ public class PlanOperativoDto {
     private String Materia;
     private String Tematica;
     private String fecha;
+
+    private String razon;
     private String porcentaje;
 
-    public PlanOperativoDto(String id, String estudiante, String materia, String tematica, String Date, String porcentaje){
+    public PlanOperativoDto(String id, String estudiante, String materia, String tematica, String Date, String razon, String porcentaje){
         this.id = id;
         this.NombreEstudiante = estudiante;
         this.Materia=materia;
         this.Tematica = tematica;
         this.fecha = Date;
+        this.razon = razon;
         this.porcentaje = porcentaje;
     }
 
@@ -58,5 +61,13 @@ public class PlanOperativoDto {
 
     public void setNombreEstudiante(String nombreEstudiante) {
         NombreEstudiante = nombreEstudiante;
+    }
+
+    public String getRazon() {
+        return razon;
+    }
+
+    public void setRazon(String razon) {
+        this.razon = razon;
     }
 }

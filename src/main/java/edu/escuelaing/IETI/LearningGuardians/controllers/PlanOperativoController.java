@@ -1,20 +1,20 @@
-package edu.escuelaing.IETI.LearningGuardians.controller;
+package edu.escuelaing.IETI.LearningGuardians.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.escuelaing.IETI.LearningGuardians.dtos.PlanOperativoDto;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import edu.escuelaing.IETI.LearningGuardians.dto.PlanOperativoDto;
 import edu.escuelaing.IETI.LearningGuardians.entities.PlanOperativo;
 import edu.escuelaing.IETI.LearningGuardians.services.PlanOpService;
 
 @RestController
-@RequestMapping("/pOperativos")
+@RequestMapping("/pOperativo")
 public class PlanOperativoController {
     
     private final PlanOpService service;
@@ -51,12 +51,41 @@ public class PlanOperativoController {
             return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
         }
     }
+    /**
+     * Response generado para retornar todos los planes operativos de una persona
+     * @param name
+     * @return
+     */
+    @GetMapping("/all/{name}")
+    public ResponseEntity<List<PlanOperativoDto>> getAllFromUser(@PathVariable String name){
+        try{
+            List<PlanOperativo> users = service.getAllFromUser(name);
+            List<PlanOperativoDto> onlyUserPO = new ArrayList<PlanOperativoDto>();
+            for(PlanOperativo operatives : users){
+                onlyUserPO.add(modelMapper.map(operatives, PlanOperativoDto.class));
+            }
+            return new ResponseEntity<>(onlyUserPO,HttpStatus.ACCEPTED);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+            return new ResponseEntity<>(new ArrayList<>(),HttpStatus.NOT_FOUND);
+        }
+    }
 
+
+
+    /**
+     * Funcion generada para crear e insertar un plan operativo
+     * @param pOperativoDto
+     * @return
+     */
     @PostMapping
     public ResponseEntity<PlanOperativoDto> create(@RequestBody PlanOperativoDto pOperativoDto){
         try{
+            System.out.println("INSERTANDO PLAN OPERATIVO --------------------------------------------");
             PlanOperativo newUser = new PlanOperativo(pOperativoDto);
             service.create(newUser);
+            System.out.println("PLAN OPERATIVO INSERTADO-------------------------------------------");
             return new ResponseEntity<>(pOperativoDto, HttpStatus.ACCEPTED);
         }
         catch(Exception ex){

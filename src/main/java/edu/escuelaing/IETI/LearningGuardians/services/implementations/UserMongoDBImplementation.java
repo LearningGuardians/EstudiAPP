@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
-import edu.escuelaing.IETI.LearningGuardians.LearningGuardiansApplication;
 import edu.escuelaing.IETI.LearningGuardians.dtos.UserDto;
 import edu.escuelaing.IETI.LearningGuardians.entities.User;
 import edu.escuelaing.IETI.LearningGuardians.repositories.UserRepository;
@@ -18,9 +17,13 @@ import edu.escuelaing.IETI.LearningGuardians.services.UserService;
 
 @Service
 public class UserMongoDBImplementation implements UserService{
-    @Autowired
+
+
     private UserRepository userRepository;
 
+    public UserMongoDBImplementation(@Autowired UserRepository userRepository){
+        this.userRepository = userRepository;
+    }
     
     @Override
     public User create(User user) {

@@ -36,4 +36,11 @@ public interface PlanOpService {
      * @return Id del plan operativo a eliminar
      */
     void deleteById(String id);
+
+    /**
+     * Retorna la lista de planes operativos que tenga un usuario especifico
+     * @param name
+     * @return
+     */
+    List<PlanOperativo> getAllFromUser(String name);
 }
