@@ -1,9 +1,10 @@
 package edu.escuelaing.IETI.LearningGuardians.controllers;
 
+
 import edu.escuelaing.IETI.LearningGuardians.dtos.materias.MateriaDto;
 import edu.escuelaing.IETI.LearningGuardians.dtos.materias.TematicaDto;
-import edu.escuelaing.IETI.LearningGuardians.entities.materias.Materia;
-import edu.escuelaing.IETI.LearningGuardians.entities.materias.Tematica;
+import edu.escuelaing.IETI.LearningGuardians.entities.subjects.Materia;
+import edu.escuelaing.IETI.LearningGuardians.entities.subjects.Tematica;
 import edu.escuelaing.IETI.LearningGuardians.services.MateriasService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

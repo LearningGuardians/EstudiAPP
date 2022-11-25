@@ -1,9 +1,7 @@
 package edu.escuelaing.IETI.LearningGuardians.services;
 
-
-import edu.escuelaing.IETI.LearningGuardians.entities.materias.Materia;
-import edu.escuelaing.IETI.LearningGuardians.entities.materias.Tematica;
-
+import edu.escuelaing.IETI.LearningGuardians.entities.subjects.Materia;
+import edu.escuelaing.IETI.LearningGuardians.entities.subjects.Tematica;
 import java.util.List;
 
 public interface MateriasService {
