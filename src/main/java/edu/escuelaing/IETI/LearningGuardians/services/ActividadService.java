@@ -20,8 +20,8 @@ import java.util.Optional;
 
 public interface ActividadService {
     Actividad insertar(Actividad actividad );
-    Optional<Actividad> consultar(Integer ID );
+    Optional<Actividad> consultar(String ID );
     List<Actividad> consultarTodos();
-    Actividad modificar(Actividad actividad, Integer ID );
-    boolean eliminar( Integer ID );
+    Actividad modificar(Actividad actividad, String ID );
+    boolean eliminar( String ID );
 }

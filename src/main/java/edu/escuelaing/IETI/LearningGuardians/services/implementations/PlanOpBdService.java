@@ -1,9 +1,13 @@
 package edu.escuelaing.IETI.LearningGuardians.services.implementations;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import edu.escuelaing.IETI.LearningGuardians.IA.LearningIA;
 import edu.escuelaing.IETI.LearningGuardians.repositories.PlanOperativo_Repository;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.escuelaing.IETI.LearningGuardians.entities.PlanOperativo;
@@ -12,7 +16,8 @@ import edu.escuelaing.IETI.LearningGuardians.services.PlanOpService;
 @Service
 public class PlanOpBdService implements PlanOpService {
 
-    private final PlanOperativo_Repository po_Mongo;
+
+    private final PlanOperativo_Repository po_Mongo;    
 
     private LearningIA IA;
 
@@ -23,9 +28,8 @@ public class PlanOpBdService implements PlanOpService {
      * @param po_mongo
      * @param ia
      */
-    public PlanOpBdService(PlanOperativo_Repository po_mongo, LearningIA ia) {
+    public PlanOpBdService(@Autowired PlanOperativo_Repository po_mongo) {
         this.po_Mongo = po_mongo;
-        IA = ia;
     }
 
     /**
@@ -36,7 +40,6 @@ public class PlanOpBdService implements PlanOpService {
     @Override
     public PlanOperativo create(PlanOperativo pOp) {
         po_Mongo.save(pOp);
-        IA = new LearningIA(pOp);
         return pOp;
     }
 
@@ -79,5 +82,22 @@ public class PlanOpBdService implements PlanOpService {
     @Override
     public void deleteById(String id) {
         po_Mongo.deleteById(id);
+    }
+
+    /**
+     * Mediante un filtro hacia todos los elementos de la base de datos, se revisa los planes operativos
+     * que tengan como dueño al usuario definido.
+     * @param name
+     */
+    @Override
+    public List<PlanOperativo> getAllFromUser(String name){
+        List<PlanOperativo> all = getAll();
+        List<PlanOperativo> onlyUser = new ArrayList();
+        for(PlanOperativo po : all){
+            if(po.getNombreEstudiante().equals(name)){
+                onlyUser.add(po);
+            }
+        }
+        return onlyUser;
     }
 }

@@ -27,7 +27,10 @@ import java.util.Optional;
 
 @Service
 public class ActividadServiceImpl implements ActividadService {
+
+
     private final ActividadRepository actividadRepository;
+
 
     public ActividadServiceImpl(@Autowired ActividadRepository actividadRepository )
     {
@@ -42,7 +45,7 @@ public class ActividadServiceImpl implements ActividadService {
     }
 
     @Override
-    public Optional<Actividad> consultar(Integer ID) {
+    public Optional<Actividad> consultar(String ID) {
         return actividadRepository.findById(ID);
     }
 
@@ -53,12 +56,12 @@ public class ActividadServiceImpl implements ActividadService {
     }
 
     @Override
-    public Actividad modificar(Actividad actividad, Integer ID) {
+    public Actividad modificar(Actividad actividad, String ID) {
         eliminar(ID);
         return actividadRepository.save(actividad);
     }
     @Override
-    public boolean eliminar(Integer ID) {
+    public boolean eliminar(String ID) {
         actividadRepository.deleteById(ID);
         return true;
     }

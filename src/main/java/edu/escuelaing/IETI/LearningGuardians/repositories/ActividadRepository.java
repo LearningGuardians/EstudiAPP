@@ -15,7 +15,7 @@ package edu.escuelaing.IETI.LearningGuardians.repositories;
 
 
 import edu.escuelaing.IETI.LearningGuardians.entities.Actividad;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface ActividadRepository extends CrudRepository<Actividad, Integer> {
+public interface ActividadRepository extends MongoRepository<Actividad, String> {
 }

@@ -21,30 +21,28 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 import java.util.Date;
 
 @RestController
-@RequestMapping(path="/actividad")
-@CrossOrigin(origins = "http://localhost")
+@RequestMapping("/actividad")
+//@CrossOrigin(origins = "http://localhost")
 public class ActividadController {
-    @Autowired
 
     private ActividadService actividadService ;
 
-    public ActividadController(@Autowired ActividadService actividadServiceImpl) {
-        this.actividadService = actividadService;
+    @Autowired
+    public ActividadController(ActividadService actividadServiceImpl) {
+        this.actividadService = actividadServiceImpl;
     }
 
     @PostMapping("/insertar")
     public ResponseEntity<Actividad> insertar(@RequestBody ActividadDto actividadDto) {
+        System.out.println("INSERTANDO ACTIVIDAD --------------------------------------");
         return ResponseEntity.ok(actividadService.insertar( new Actividad(actividadDto)));
     }
 
     @GetMapping( "/consultar/{ID}" )
-    public ResponseEntity<Optional<Actividad>> consultar(@PathVariable Integer ID) {
+    public ResponseEntity<Optional<Actividad>> consultar(@PathVariable String ID) {
         return ResponseEntity.ok(actividadService.consultar(ID));
     }
 
@@ -54,7 +52,7 @@ public class ActividadController {
     }
 
     @PutMapping( "/modificar/{ID}" )
-    public ResponseEntity<Actividad> modificar(@RequestBody ActividadDto actividadDto, @PathVariable Integer ID) {
+    public ResponseEntity<Actividad> modificar(@RequestBody ActividadDto actividadDto, @PathVariable String ID) {
         return ResponseEntity.ok(actividadService.modificar(new Actividad(actividadDto),ID));
     }
 }
